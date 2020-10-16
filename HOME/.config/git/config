@@ -1,0 +1,17 @@
+[core]
+	pager = less -F -X
+	editor = emacs
+	quotepath = off
+	filemode = true
+	autocrlf = false
+	ignorecase = true
+	protectNTFS = true
+[user]
+	name = muyinliu
+	email = muyinliu@gmail.com
+[difftool]
+    prompt = false
+[http "https://github.com"]
+	proxy = socks5h://127.0.0.1:1080
+[credential]
+	helper = osxkeychain

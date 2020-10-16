@@ -1,0 +1,316 @@
+matches:
+  - trigger: "mn;"
+    replace: "MuNote"
+
+  - trigger: "ud;"
+    replace: "Update: {{yyyyMMdd}}"
+    vars:
+      - name: yyyyMMdd
+        type: date
+        params:
+          format: "%Y%m%d"
+
+  - trigger: "nud;"
+    replace: "Update: {{yyyyMMdd}}\n  Date: {{yyyyMMdd}}"
+    vars:
+      - name: yyyyMMdd
+        type: date
+        params:
+          format: "%Y%m%d"
+
+  - trigger: "nd;"
+    replace: "  Date: {{yyyyMMdd}}"
+    vars:
+      - name: yyyyMMdd
+        type: date
+        params:
+          format: "%Y%m%d"
+
+  - trigger: "ni;"
+    replace: "-----------------------------------------------------------------\n## 安装/加载 `$|$`\n\n"
+
+  - trigger: "nu;"
+    replace: "-----------------------------------------------------------------\n## 使用 `$|$`\n\n"
+
+  - trigger: "nq;"
+    replace: "-----------------------------------------------------------------\n## 问题收集\n\n"
+
+  - trigger: "nc;"
+    replace: "-----------------------------------------------------------------\n## 配置 `$|$`\n\n"
+
+  - trigger: "ns;"
+    replace: "## 说明\n\n"
+
+  - trigger: "nr;"
+    replace: "-----------------------------------------------------------------\n## 参考\n\n"
+
+  - trigger: "pb;"
+    replace: "-----------------------------------------------------------------"
+
+  - trigger: "pb2;"
+    replace: "================================================================="
+
+  - trigger: "table;"
+    replace: "| field1 | field2 |\n|---------|---------|\n| value1 | value2 |"
+
+  - trigger: "mc;"
+    replace: "```\n$|$\n```"
+
+  - trigger: "cr;"
+    replace: "```\n=>\n```=>\n"
+
+  - trigger: "lc;"
+    replace: "```lisp\n$|$\n```"
+
+  - trigger: "lo;"
+    replace: "(optimize (speed 3) (safety 0) (debug 0))"
+
+  - trigger: "ldo;"
+    replace: "(declare (optimize (speed 3) (safety 0) (debug 0)))"
+
+  - trigger: "ldo2;"
+    replace: "(declaim (optimize (speed 3) (safety 0) (debug 0)))"
+
+  - trigger: "ldi;"
+    replace: "(declaim (inline $|$))"
+
+  - trigger: "lcc;"
+    replace: "```\n```lisp\n"
+
+  - trigger: "sc;"
+    replace: "```shell\n$|$\n```"
+
+  - trigger: "jsc;"
+    replace: "```javascript\n$|$\n```"
+
+  - trigger: "jsonc;"
+    replace: "```json\n$|$\n```"
+
+  - trigger: "rc;"
+    replace: "```redis\n$|$\n```"
+
+  - trigger: "pc;"
+    replace: "```php\n$|$\n```"
+
+  - trigger: "hc;"
+    replace: "```html\n$|$\n```"
+
+  - trigger: "sqlc;"
+    replace: "```sql\n$|$\n```"
+
+  - trigger: "cssc;"
+    replace: "```css\n$|$\n```"
+
+  - trigger: "asmc;"
+    replace: "```asm\n$|$\n```"
+
+  - trigger: "cc;"
+    replace: "```c\n$|$\n```"
+
+  - trigger: "cppc;"
+    replace: "```cpp\n$|$\n```"
+
+  - trigger: "goc;"
+    replace: "```go\n$|$\n```"
+
+  - trigger: "pyc;"
+    replace: "```python\n$|$\n```"
+
+  - trigger: "syc;"
+    replace: "```syntax\n$|$\n```"
+
+  - trigger: "asc;"
+    replace: "```applescript\n$|$\n```"
+
+  - trigger: "jc;"
+    replace: "```java\n$|$\n```"
+
+  - trigger: "plc;"
+    replace: "```prolog\n$|$\n```"
+
+  - trigger: "occ;"
+    replace: "```objective-c\n$|$\n```"
+
+  - trigger: "lftp;"
+    replace: "```lftp\n$|$\n```"
+
+  - trigger: "cljc;"
+    replace: "```clojure\n$|$\n```"
+
+  - trigger: "rbc;"
+    replace: "```ruby\n$|$\n```"
+
+  - trigger: "hsc;"
+    replace: "```haskell\n$|$\n```"
+
+  - trigger: "urlc;"
+    replace: "```url\n$|$\n```"
+
+  - trigger: "ugc;"
+    replace: "```ug\n$|$\n```"
+
+  - trigger: "sequencec;"
+    replace: "```ug\n┌────────┐                         ┌────────┐ \n│ Client │                         │ Server │\n└───┬────┘                         └───┬────┘\n    │ request for secret               │ generate secret\n    ├─────────────────────────────────>│ and random keys\n    │                                  ├───┐\n    │                                  │<──┘\n    │                                  │\n    │                                  │ store secret and\n    │                                  │ random keys to user account\n    │                                  ├───┐\n    │                                  │<──┘\n    │ return account name, secret      │\n    │   (string or QR code)            │\n    │   and random keys                │\n    │<┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┤\n    │                                  │\n    │ scan QR code                     │\n    │   or input account name, secret  │\n    │   with GA                        │\n    ├───┐                              │\n    │<──┘                              │\n    │                                  │\n    │ GA store account name, secret    │\n    ├───┐                              │\n    │<──┘                              │\n    │                                  │\n$|$\n```"
+
+  - trigger: "kuang;"
+    replace: "┌ ┬ ┐\n\n├ ┼ ┤\n\n└ ┴ ┘ \n│ ─\n   \n┌───┐\n│   │\n└───┘\n┌─────────┐\n│  │\n└─────────┘"
+
+  - trigger: "shi;"
+    replace: "┼"
+
+  - trigger: "hz;"
+    replace: "┐"
+
+  - trigger: "hs;"
+    replace: "┬"
+
+  - trigger: "hs2;"
+    replace: "┤"
+
+  - trigger: "sz;"
+    replace: "└"
+
+  - trigger: "sh;"
+    replace: "├"
+
+  - trigger: "sh3;"
+    replace: "┴"
+
+  - trigger: "sx;"
+    replace: "│"
+
+  - trigger: "xsx;"
+    replace: "╵"
+
+  - trigger: "ssx;"
+    replace: "╷"
+
+  - trigger: "sxx;"
+    replace: "┊"
+
+  - trigger: "hx;"
+    replace: "─"
+
+  - trigger: "yhx;"
+    replace: "╴"
+
+  - trigger: "zhx;"
+    replace: "╶"
+
+  - trigger: "hxx;"
+    replace: "┄"
+
+  - trigger: "zsj;"
+    replace: "┌"
+
+  - trigger: "zxj;"
+    replace: "└"
+
+  - trigger: "yxj;"
+    replace: "┘"
+
+  - trigger: "ysj;"
+    replace: "┐"
+
+  - trigger: "pyt;"
+    replace: "if __name__ == '__main__':\n    main()"
+
+  - trigger: "pyh;"
+    replace: "#!/usr/bin/env python\n#-*- coding: utf-8 -*-\n"
+
+  - trigger: "jl;"
+    replace: "console.log($|$);"
+
+  - trigger: "formatsd;"
+    replace: "yyyy-MM-dd HH:mm:ss.SSS"
+
+  - trigger: "formatd;"
+    replace: "yyyy-MM-dd HH:mm:ss"
+
+  - trigger: "`;;"
+    replace: "· "
+
+  - trigger: "cl;"
+    replace: "Common Lisp"
+
+  - trigger: "js;"
+    replace: "JavaScript"
+
+  - trigger: "as;"
+    replace: "AppleScript"
+
+  - trigger: "mac;"
+    replace: "macOS"
+
+  - trigger: "cl-format;"
+    replace: "(clojure.pprint/cl-format true $|$)"
+
+  - trigger: "<!;"
+    replace: "<!-- $|$ -->"
+
+  - trigger: "php;"
+    replace: "<?php $|$ ?>"
+
+  - trigger: "phpc;"
+    replace: "<?php\n    $|$\n?>"
+
+  - trigger: "jt;"
+    replace: "→ ← ↑ ↓ ↔ ︎⇄ ⇆ ↕ ︎⇅ ⇵ ↘ ︎↖ ︎↗ ︎↙ ︎↲ ↰ ↱ ↴"
+
+  - trigger: "not;"
+    replace: "¬"
+
+  - trigger: "sjx;"
+    replace: "▶︎"
+
+  - trigger: "yuan;"
+    replace: "¥"
+
+  - trigger: ";["
+    replace: "【"
+
+  - trigger: ";]"
+    replace: "】"
+
+  - trigger: "du;"
+    replace: "°"
+
+  - trigger: "kline;"
+    replace: " ╷ \n │ \n┌┴┐\n│ │\n└┬┘\n ╵\n╶┴╴\n╶┬╴\n┌─┐\n└─┘\n╶┼╴\n╺┿╸\n╺┷╸\n╺┯╸\n┍━┑\n┕━┙\n┍┷┑\n│ │\n┕┯┙\n"
+
+  - trigger: "ctx;"
+    replace: "╶┼╴\n │ \n ╵ \n╶┬╴\n │ \n ╵ \n┌─┐\n└┬┘\n │ \n ╵ \n┌┴┐\n└┬┘\n │ \n ╵ "
+
+  - trigger: "sjszx;"
+    replace: " ╷  \n │ \n╶┼╴\n ╷ \n │ \n╶┴╴\n ╷ \n │ \n┌┴┐\n└─┘\n ╷\n │ \n┌┴┐\n└┬┘"
+
+  - trigger: "hbf;"
+    replace: "var style = $('.trading-chart').style; style.zIndex = '9999'; style.position = 'fixed'; style.top = '0px'; style.right = '0px'; style.bottom = '0px'; style.left = '0px';"
+
+  - trigger: "hbfq;"
+    replace: "var style = $('.trading-chart').style; style.zIndex = ''; style.position = ''; style.top = ''; style.right = ''; style.bottom = ''; style.left = '';"
+
+  - trigger: "ydy;"
+    replace: "≈"
+
+  - trigger: "gou;"
+    replace: "√"
+
+  - trigger: "cha;"
+    replace: "×"
+
+  - trigger: "dydy;"
+    replace: "≥"
+
+  - trigger: "xydy;"
+    replace: "≤"
+
+  - trigger: "chu;"
+    replace: "÷"
+
+  - trigger: "cheng;"
+    replace: "×"
+
+  - trigger: "us;"
+    replace: "μs"
+

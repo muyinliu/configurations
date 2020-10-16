@@ -1,0 +1,342 @@
+{
+  "title": "Mu Mode App Shortcuts(rev 0.1)",
+  "rules": [
+    {
+      "description": "Google Chrome: Command + Control + Shift + c",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Google Chrome'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Aquamacs: Command + Control + Shift + a",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Aquamacs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Sublime Text: Command + Control + Shift + t",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Sublime Text'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Pennywise: Command + Control + Shift + p",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'if (frontmost of application \"Pennywise\") then' -e 'tell application \"System Events\" to tell process \"Pennywise\" to click button 3 of window 1' -e 'else' -e 'do shell script \"open -a Pennywise\"' -e 'end if'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "iTerm 2: Command + Control + Shift + i",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a iTerm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Finder: Command + Control + Shift + f",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Finder"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Mail: Command + Control + Shift + m",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Mail"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Safari: Command + Control + Shift + s",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Safari"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "LastPass: Command + Control + Shift + l",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a LastPass"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Kaleidoscope: Command + Control + Shift + k",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "/usr/local/bin/ksdiff /Users/muyinliu/Downloads/1.txt /Users/muyinliu/Downloads/2.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Downie: Command + Control + Shift + d",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Downie 4'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "System Preferences: Command + Option + p",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'System Preferences'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Espanso enable: Command + Control + Shift + e",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "/usr/local/bin/espanso cmd enable"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,315 @@
+{
+  "title": "Mu Mode special keys (rev 0.1)",
+  "rules": [
+    {
+      "description": "Mu Mode special keys",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "left_command", "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_command", "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": []
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "right_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "right_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward",
+              "modifiers": []
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash",
+              "modifiers": []
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "description": "Apple Internal Keyboard"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "description": "Apple Internal Keyboard"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift"
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control", "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": [
+                "right_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "left_shift"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "right_shift"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f4",
+            "modifiers": {
+              "mandatory": [],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "shell_command": "/usr/local/bin/setvolume 3 && /usr/local/bin/terminal-notifier -title \"setvolume to 3\""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

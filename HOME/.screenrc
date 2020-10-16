@@ -1,0 +1,17 @@
+shell -$SHELL
+
+# disable welcome screen on start up
+startup_message off
+
+# disable vbell when error comes out
+#vbell off
+
+# screen buffer 1024 lines
+defscrollback 1024
+
+# show window tabs, CPU usage and clock at last line
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{.bW}%-w%{.rY}%n %t%{.bW}%+w %=%{..G} %H(%l) %{..Y} %Y-%m-%d %c:%s "
+
+term xterm-256color
