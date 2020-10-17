@@ -9,7 +9,6 @@ GITHUB_USER=muyinliu
 GITHUBUSERCONTENT_IP=199.232.68.133
 UPDATE_SYSTEM=true
 SPEEDUP=true
-# TODO should move to ??
 SS_SERVER_HOST=${SS_SERVER_HOST}
 SS_SERVER_PORT=${SS_SERVER_PORT:-8080}
 SS_SERVER_PASS=${SS_SERVER_PASS:-password}
@@ -21,26 +20,25 @@ function colored_echo () {
     else
         style="$2"
     fi;
-    printf "$style$1\e[0m\n"
+    printf "$style%s\e[0m\n" "$1"
 }
 
 function prompt_admin_password () {
     while :; do # Loop until valid input is entered or Cancel is pressed.
-        adminpwd=$(osascript -e 'Tell application "System Events" to display dialog "Enter '$USER'’s administrator password:" with title "Administrator Password" with hidden answer default answer ""' -e 'text returned of result' 2>/dev/null)
-        if (( $? )); then
+        adminpwd=$(osascript -e "Tell application \"System Events\" to display dialog \"Enter ${USER}’s administrator password:\" with title \"Administrator Password\" with hidden answer default answer \"\"" -e "text returned of result" 2>/dev/null)
+        if [[ "$?" != "0" ]]; then
             colored_echo 'User selected "Cancel" button, exiting script!' "\e[31m";
             # Abort, if user pressed Cancel.
             exit 1;
         fi
-        name=$(echo -n "$adminpwd" | sed 's/^ *//' | sed 's/ *$//')  # Trim leading and trailing whitespace.
         if [[ -z "$adminpwd" ]]; then
             # The user left the password blank.
             osascript -e 'Tell application "System Events" to display alert "You must enter a non-blank password; please try again." as warning' >/dev/null;
             # Continue loop to prompt again.
         else
             echo -e "$adminpwd\n" | sudo -S echo ""
-            result=$(sudo -n uptime 2>&1|grep "load"|wc -l);
-            if [[ $result = "       1" ]]; then
+            result="$(sudo -n uptime 2>&1 | grep -c "load")"
+            if [[ "$result" = "1" ]]; then
                 colored_echo "Admin password is correct...";
                 # Valid password: exit loop and continue.
                 unset adminpwd;
@@ -72,7 +70,7 @@ function update_system () {
     tmp_file=".softwareupdate.$$"
     colored_echo "  Checking Apple Software Update Server for available updates,"
     colored_echo "  Please be patient. This process may take a while to complete..."
-    sudo /usr/sbin/softwareupdate -l &> $tmp_file
+    sudo /usr/sbin/softwareupdate -l | sudo tee $tmp_file
     wait
     echo -e "\n"
     require_reboot_updates_count=$(/usr/bin/grep "restart" $tmp_file | /usr/bin/wc -l | xargs)
@@ -84,10 +82,10 @@ function update_system () {
     /usr/bin/grep -v "restart" $tmp_file | grep "recommended"
     echo ""
     recommended_updates_count=$(/usr/bin/grep "recommended" $tmp_file | /usr/bin/wc -l | xargs)
-    if [ $recommended_updates_count = "0" ]; then
+    if [[ "$recommended_updates_count" = "0" ]]; then
          colored_echo "  No new recommended updates found."
     else
-        if [ $require_reboot_updates_count = "0" ]; then
+        if [[ "$require_reboot_updates_count" = "0" ]]; then
           colored_echo "  Updates found, but no reboot required. Installing now."
           colored_echo "  Please be patient. This process may take a while to complete."
           sudo /usr/sbin/softwareupdate -ia
@@ -106,10 +104,10 @@ function update_system () {
     # cleaning up temp files before possible reboot
     /bin/rm -rf $tmp_file
 
-    if [ $require_reboot_updates_count != "0" ]; then
+    if [[ "$require_reboot_updates_count" != "0" ]]; then
         colored_echo "  Apple Software Updates requiring restart have been installed."
         colored_echo "  Please run this script again after restart."
-        read -p "  Press any key to restart..." </dev/tty
+        read -pr "  Press any key to restart..." </dev/tty
         wait
         restart_system
     fi
@@ -120,7 +118,7 @@ function install_apple_command_line_tools () {
     colored_echo "Installing Apple Command Line Tools."
     colored_echo "  Checking to see if Apple Command Line Tools are installed."
     xcode-select -p &>/dev/null
-    if [[ $? -ne 0 ]]; then
+    if [[ "$?" != "0" ]]; then
         colored_echo "  Apple Command Line Utilities not installed. Installing..."
         colored_echo "  Please be patient. This process may take a while to complete."
         # Tell software update to also install OSX Command Line Tools without prompt
@@ -138,7 +136,7 @@ function install_apple_command_line_tools () {
 function install_brew () {
     echo ""
     colored_echo "Installing Homebrew."
-    if test ! $(which brew); then
+    if test ! "$(command -v brew)"; then
         # prevent `curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused`
         if $SPEEDUP; then
             sudo echo "" | sudo tee -a /etc/hosts
@@ -146,7 +144,7 @@ function install_brew () {
         fi;
         curl -o brew_install.sh -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh
         if $SPEEDUP; then
-            colored_echo "  Speed up with mirrors"
+            colored_echo "  Speed up Hombrew installation with ustc mirror."
             # speed up git clone of brew.git (/usr/local/Homebrew)
             # options -i of BSD's sed is slightly different from Linux
             sed -i "" "s/BREW_REPO=\"https:\/\/github.com\/Homebrew\/brew\"/BREW_REPO=\"https:\/\/mirrors.ustc.edu.cn\/brew.git\"/g" brew_install.sh
@@ -166,13 +164,13 @@ function install_brew () {
 
 function enable_mirror_for_brew () {
     echo ""
-    colored_echo "Enable mirror for brew."
-    # TODO fatal: cannot change to '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask': No such file or directory
+    colored_echo "Enable ustc mirror for brew."
     git -C "$(brew --repo)" remote set-url origin https://mirrors.ustc.edu.cn/git/homebrew/brew.git
     git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+    # avoid fatal: cannot change to '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask': No such file or directory
     if [ ! -d "$(brew --repo homebrew/cask)" ]; then
         mkdir -p "$(brew --repo homebrew/cask)"
-        cd "$(brew --repo homebrew/cask)" >/dev/null
+        cd "$(brew --repo homebrew/cask)" >/dev/null || return
         git init -q
         git config "remote.origin.url" https://mirrors.ustc.edu.cn/homebrew-cask.git
         git config "remote.origin.fetch" "+refs/heads/*:refs/remotes/origin/*"
@@ -199,8 +197,8 @@ function enable_https_proxy () {
     # have to config proxy to speed up `brew cask install`(download a lot data from https://github.com/xxx/yyy/releases/zzz)
     echo ""
     colored_echo "Enable HTTPS_PROXY."
-    if $SS_SERVER_HOST; then
-        ss-local -s $SS_SERVER_HOST -p $SS_SERVER_PORT -k $SS_SERVER_PASS -m $SS_SERVER_METHOD -l 1080 &> /dev/null &
+    if [[ ! -z "$SS_SERVER_HOST" ]]; then
+        ss-local -s "$SS_SERVER_HOST" -p "$SS_SERVER_PORT" -k "$SS_SERVER_PASS" -m "$SS_SERVER_METHOD" -l 1080 &> /dev/null &
         export HTTPS_PROXY="socks5h://127.0.0.1:1080"
         colored_echo "  HTTPS_PROXY configured." 
     else
@@ -301,7 +299,7 @@ function install_software_with_brew_cask () {
 
 function install_oh_my_zsh () {
     colored_echo "  Installing oh-my-zsh."
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
 function install_proximac () {
@@ -312,7 +310,7 @@ function install_proximac () {
 function install_quicklisp () {
     colored_echo "  Installing quicklisp."
     if [ ! -d ~/quicklisp/ ]; then
-        cd /tmp/
+        cd /tmp/ || exit
         curl -o quicklisp.lisp http://beta.quicklisp.org/quicklisp.lisp && \
         sbcl --load quicklisp.lisp \
              --eval '(quicklisp-quickstart:install)' \
@@ -364,9 +362,9 @@ function init_aquamacs_config () {
 
 function init_other_configs () {
     colored_echo "  Init other configs."
-    cd ~/
+    cd ~/ || exit
     git clone https://github.com/$GITHUB_USER/configurations
-    cd configurations/
+    cd configurations/ || exit
     /bin/bash ./init.sh
 }
 
