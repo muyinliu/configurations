@@ -193,23 +193,23 @@ function disable_mirror_for_brew () {
     export HOMEBREW_BOTTLE_DOMAIN=https://homebrew.bintray.com/homebrew-bottles
 }
 
-function enable_https_proxy () {
+function enable_proxy () {
     # have to config proxy to speed up `brew cask install`(download a lot data from https://github.com/xxx/yyy/releases/zzz)
     echo ""
-    colored_echo "Enable HTTPS_PROXY."
+    colored_echo "Enable proxy."
     if [[ ! -z "$SS_SERVER_HOST" ]]; then
         ss-local -s "$SS_SERVER_HOST" -p "$SS_SERVER_PORT" -k "$SS_SERVER_PASS" -m "$SS_SERVER_METHOD" -l 1080 &> /dev/null &
-        export HTTPS_PROXY="socks5h://127.0.0.1:1080"
-        colored_echo "  HTTPS_PROXY configured." 
+        export ALL_PROXY="socks5h://127.0.0.1:1080"
+        colored_echo "  ALL_PROXY configured." 
     else
         colored_echo "  env SS_SERVER_HOST NOT set yet, skip."
     fi;
 }
 
-function disable_https_proxy () {
+function disable_proxy () {
     echo ""
-    colored_echo "Disable HTTPS_PROXY."
-    unset HTTPS_PROXY
+    colored_echo "Disable proxy."
+    unset ALL_PROXY
 }
 
 function install_software_with_brew () {
@@ -388,10 +388,10 @@ install_apple_command_line_tools
 install_brew
 if $SPEEDUP; then enable_mirror_for_brew; fi;
 install_software_with_brew
-if $SPEEDUP; then enable_https_proxy; fi;
+if $SPEEDUP; then enable_proxy; fi;
 install_software_with_brew_cask
 if $SPEEDUP; then
-    disable_https_proxy
+    disable_proxy
     disable_mirror_for_brew
 fi;
 install_other_software
