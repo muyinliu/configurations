@@ -260,8 +260,8 @@ function install_software_with_brew_cask () {
     brew cask install caffeine
     brew cask install iterm2
     brew cask install rar
-    brew cask install the-unarvhiver
-    brew cask install lasspass
+    brew cask install the-unarchiver
+    brew cask install lastpass
     brew cask install google-chrome
     brew cask install aquamacs # require config ~/.emacs.d
     brew cask install oracle-jdk
