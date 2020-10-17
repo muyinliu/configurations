@@ -197,7 +197,7 @@ function enable_proxy () {
     # have to config proxy to speed up `brew cask install`(download a lot data from https://github.com/xxx/yyy/releases/zzz)
     echo ""
     colored_echo "Enable proxy."
-    if [[ ! -z "$SS_SERVER_HOST" ]]; then
+    if [[ -n "$SS_SERVER_HOST" ]]; then
         ss-local -s "$SS_SERVER_HOST" -p "$SS_SERVER_PORT" -k "$SS_SERVER_PASS" -m "$SS_SERVER_METHOD" -l 1080 &> /dev/null &
         export ALL_PROXY="socks5h://127.0.0.1:1080"
         colored_echo "  ALL_PROXY configured." 
