@@ -1930,7 +1930,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "/usr/local/bin/ksdiff /Users/muyinliu/Downloads/1.txt /Users/muyinliu/Downloads/2.txt"
+                                        "shell_command": "if [[ ! -f /tmp/A.txt ]]; then touch /tmp/A.txt; fi; if [[ ! -f /tmp/B.txt ]]; then touch /tmp/B.txt; fi; /usr/local/bin/ksdiff /tmp/A.txt /tmp/B.txt"
                                     }
                                 ],
                                 "type": "basic"
