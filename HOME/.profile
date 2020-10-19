@@ -673,6 +673,6 @@ export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gawk/libexec/gnubin:$PATH"
 
 #################################################
-## .local_profile
+## .private_profile
 ##   private configs like HOMEBREW_GITHUB_API_TOKEN
-if [ -f ~/.local_profile ]; then . ~/.local_profile; fi
+if [ -f ~/.private_profile ]; then . ~/.private_profile; fi
