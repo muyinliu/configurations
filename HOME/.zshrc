@@ -58,5 +58,3 @@ source $ZSH/oh-my-zsh.sh
 ##############################################################
 # User configuration
 if [ -f ~/.profile ]; then . ~/.profile; fi
-
-if [ -f ~/.local_profile ]; then . ~/.local_profile; fi
