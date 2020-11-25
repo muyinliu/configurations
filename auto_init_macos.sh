@@ -222,6 +222,8 @@ function install_software_with_brew () {
     brew install findutils
     brew install grep
     brew install gawk
+    # install zsh-syntax-highlighting
+    brew install zsh-syntax-highlighting
     # install utilities
     brew install git
     brew install tig
