@@ -302,6 +302,8 @@ function install_software_with_brew_cask () {
 function install_oh_my_zsh () {
     colored_echo "  Installing oh-my-zsh."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    # install plugin zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 }
 
 function install_proximac () {
