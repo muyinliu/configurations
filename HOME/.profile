@@ -41,6 +41,21 @@ alias opena="open -a 'Aquamacs'"
 alias opend="open -a 'Sublime Text' /tmp/A.txt /tmp/B.txt"
 alias diff="ksdiff"
 
+# help doc for builtin commands
+function help() {
+    case "$(basename $SHELL)" in
+        zsh)
+            man zshbuiltins | less -p "^       $1 "
+            ;;
+        bash)
+            man bash | less -p "^       $1 "
+            ;;
+        *)
+            echo "Only support zsh/bash"
+            ;;
+    esac
+}
+
 # cd to ancestor with depth n
 function mcd() {
   cd $(printf "%0.s../" $(seq 1 $1 ));
