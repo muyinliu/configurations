@@ -1,0 +1,14 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	pager = less -F -X
+	editor = vim
+	quotepath = off
+	filemode = true
+	autocrlf = false
+	ignorecase = true
+	protectNTFS = true
+[user]
+	name = muyinliu
+	email = muyinliu@gmail.com
+[http "https://github.com"]
+	proxy = socks5h://127.0.0.1:1080
