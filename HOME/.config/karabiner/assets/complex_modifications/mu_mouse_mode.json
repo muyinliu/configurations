@@ -1,5 +1,5 @@
 {
-  "title": "Mu Mouse Mode (rev 0.3)",
+  "title": "Mu Mouse Mode (rev 0.3.1)",
   "rules": [
     {
       "description": "Mu Mouse Mode Semicolon(;)+D to enter Mu Mouse Mode(default Mouse Move Mode); V to Mouse Left Click; N to Mouse Right Click; Q to quit Mu Mouse Mode; D: Mouse Move Mode, J/K/L/I/U/M/O/. to Mouse Left/Down/Right/Up/Up-Left/Down-Left/Up-Right/Down-Right; F: Mouse Fast Move Mode, like Mouse Move Mode but faster; S: Mouse Scroll Mode, J/K/L/I to Mouse Scroll Left/Down/Right/Up",
@@ -11,7 +11,7 @@
             "key_code": "d",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -53,7 +53,7 @@
               }
             },
             {
-              "shell_command": "/usr/local/bin/terminal-notifier -title \"Enter MuMouseMode\" -message \"J/K/L/I/U/M/O/. move mouse, V/N click mouse, S enter scroll mode, Q quit\" -sender \"org.pqrs.Karabiner-Elements.Preferences\" -timeout 5"
+              "shell_command": "osascript -e 'display notification \"J/K/L/I/U/M/O/. move mouse, V/N click mouse, S enter scroll mode, Q quit\" with title \"Enter MuMouseMode\"'"
             }
           ]          
         },
@@ -64,16 +64,11 @@
             "key_code": "d",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
           "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mu_mode",
-              "value": 1
-            },
             {
               "type": "variable_if",
               "name": "mu_mouse_mode",
@@ -106,7 +101,7 @@
               }
             },
             {
-              "shell_command": "/usr/local/bin/terminal-notifier -title \"Already in MuMouseMode\" -message \"J/K/L/I/U/M/O/. move mouse, V/N click mouse, S enter scroll mode, Q quit\" -sender \"org.pqrs.Karabiner-Elements.Preferences\" -timeout 5"
+              "shell_command": "osascript -e 'display notification \"J/K/L/I/U/M/O/. move mouse, V/N click mouse, S enter scroll mode, Q quit\" with title \"Enter MuMouseMode\"'"
             }
           ]          
         },
@@ -117,7 +112,7 @@
             "key_code": "q",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -154,9 +149,9 @@
               }
             },
             {
-              "shell_command": "/usr/local/bin/terminal-notifier -title \"Quit MuMouseMode\" -sender \"org.pqrs.Karabiner-Elements.Preferences\" -timeout 3"
+              "shell_command": "osascript -e 'display notification with title \"Quit MuMouseMode\"'"
             }
-          ]          
+          ]
         },
         {
           "description": "V -> left click in mu_mouse_mode",
@@ -213,7 +208,7 @@
             "key_code": "j",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -249,7 +244,7 @@
             "key_code": "k",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -285,7 +280,7 @@
             "key_code": "i",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -321,7 +316,7 @@
             "key_code": "l",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -516,7 +511,7 @@
               }
             },
             {
-              "shell_command": "/usr/local/bin/terminal-notifier -title \"Enter MuMouseMode fase move\" -message \"J/K/L/I/U/M/O/. move mouse, V/N click mouse, S enter scroll mode, D return default move\" -sender \"org.pqrs.Karabiner-Elements.Preferences\" -timeout 5"
+              "shell_command": "osascript -e 'display notification \"J/K/L/I/U/M/O/. move mouse, V/N click mouse, S enter scroll mode, D return default move\" with title \"Enter MuMouseMode fast move\"'"
             }
           ]
         },
@@ -566,7 +561,7 @@
             "key_code": "j",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -592,7 +587,7 @@
             "key_code": "k",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -618,7 +613,7 @@
             "key_code": "i",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -644,7 +639,7 @@
             "key_code": "l",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -809,7 +804,7 @@
               }
             },
             {
-              "shell_command": "/usr/local/bin/terminal-notifier -title \"Enter MuMouseMode scroll\" -message \"J/K/L/I/U/M/O/. scroll mouse, V/N click mouse, D/F enter move mode, Q quit\" -sender \"org.pqrs.Karabiner-Elements.Preferences\" -timeout 5"
+              "shell_command": "osascript -e 'display notification \"J/K/L/I/U/M/O/. scroll mouse, V/N click mouse, D/F enter move mode, Q quit\" with title \"Enter MuMouseMode scroll\"'"
             }
           ]
         },
@@ -820,7 +815,7 @@
             "key_code": "j",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -846,7 +841,7 @@
             "key_code": "k",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -872,7 +867,7 @@
             "key_code": "i",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
@@ -898,7 +893,7 @@
             "key_code": "l",
             "modifiers": {
               "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_command", "right_command", "left_option", "right_option"
+                "any"
               ]
             }
           },
