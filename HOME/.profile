@@ -40,6 +40,7 @@ alias opent="open -a 'Sublime Text'"
 alias opena="open -a 'Aquamacs'"
 alias opend="open -a 'Sublime Text' /tmp/A.txt /tmp/B.txt"
 alias diff="ksdiff"
+alias ldd="otool -L"
 
 # help doc for builtin commands
 function help() {
