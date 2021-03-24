@@ -25,7 +25,7 @@ export HISTSIZE=10000
 alias historyc='echo "" > $HISTFILE & exec $SHELL -l'
 
 ## User specific aliases and functions
-alias rm='rmtrash'
+alias rm='trash'
 alias cp='cp -i'
 alias mv='mv -i'
 alias ncdu='ncdu --color=dark'
