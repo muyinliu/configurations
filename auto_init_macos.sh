@@ -224,6 +224,8 @@ function install_software_with_brew () {
     brew install gawk
     # install zsh-syntax-highlighting
     brew install zsh-syntax-highlighting
+    # install fasd
+    brew install fasd
     # install utilities
     brew install git
     brew install tig
