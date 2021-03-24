@@ -233,6 +233,7 @@ function install_software_with_brew () {
     brew install htop
     brew install tree
     brew install ncdu
+    brew install rlwrap
     brew install vim
     brew install emacs
     brew install ag
