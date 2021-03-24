@@ -194,7 +194,7 @@ function disable_mirror_for_brew () {
 }
 
 function enable_proxy () {
-    # have to config proxy to speed up `brew cask install`(download a lot data from https://github.com/xxx/yyy/releases/zzz)
+    # have to config proxy to speed up `brew install --cask`(download a lot data from https://github.com/xxx/yyy/releases/zzz)
     echo ""
     colored_echo "Enable proxy."
     if [[ -n "$SS_SERVER_HOST" ]]; then
@@ -256,47 +256,47 @@ function install_software_with_brew_cask () {
     echo ""
     colored_echo "Installing software with brew cask."
     # see https://github.com/Homebrew/homebrew-cask/tree/master/Casks for more software
-    brew cask install alfred
-    brew cask install rectangle
-    brew cask install karabiner-elements # require config ~/.config/karabiner
-    brew cask install caffeine
-    brew cask install iterm2
-    brew cask install rar
-    brew cask install the-unarchiver
-    brew cask install lastpass
-    brew cask install google-chrome
-    brew cask install aquamacs # require config ~/.emacs.d
-    brew cask install oracle-jdk
-    brew cask install qlmarkdown
+    brew install --cask alfred
+    brew install --cask rectangle
+    brew install --cask karabiner-elements # require config ~/.config/karabiner
+    brew install --cask caffeine
+    brew install --cask iterm2
+    brew install --cask rar
+    brew install --cask the-unarchiver
+    brew install --cask lastpass
+    brew install --cask google-chrome
+    brew install --cask aquamacs # require config ~/.emacs.d
+    brew install --cask oracle-jdk
+    brew install --cask qlmarkdown
     ## optional software
-    # brew cask install istat-menus
-    # brew cask install dingtalk
-    # brew cask install telegram
-    # brew cask install wechat
-    # brew cask install qq
-    # brew cask install bitbar
-    # brew cask install shadowsocksx-ng
-    # brew cask install sublime-text
-    # brew cask install pennywise
-    # brew cask install paragon-ntfs
-    # brew cask install visual-studio-code
-    # brew cask install daisydisk
-    # brew cask install docker
-    # brew cask install thunder
-    # brew cask install baidunetdisk
-    # brew cask install dozer
-    # brew cask install kaleidoscope
-    # brew cask install movist
-    # brew cask install qqlive
-    # brew cask install pdf-expert
-    # brew cask install rocket-chat
-    # brew cask install qqmusic
-    # brew cask install neteasemusic
-    # brew cask install typora
+    # brew install --cask istat-menus
+    # brew install --cask dingtalk
+    # brew install --cask telegram
+    # brew install --cask wechat
+    # brew install --cask qq
+    # brew install --cask bitbar
+    # brew install --cask shadowsocksx-ng
+    # brew install --cask sublime-text
+    # brew install --cask pennywise
+    # brew install --cask paragon-ntfs
+    # brew install --cask visual-studio-code
+    # brew install --cask daisydisk
+    # brew install --cask docker
+    # brew install --cask thunder
+    # brew install --cask baidunetdisk
+    # brew install --cask dozer
+    # brew install --cask kaleidoscope
+    # brew install --cask movist
+    # brew install --cask qqlive
+    # brew install --cask pdf-expert
+    # brew install --cask rocket-chat
+    # brew install --cask qqmusic
+    # brew install --cask neteasemusic
+    # brew install --cask typora
     
     ## TODO following software NOT support yet
-    # brew cask install espanso
-    # brew cask install vimac
+    # brew install --cask espanso
+    # brew install --cask vimac
 }
 
 function install_oh_my_zsh () {
