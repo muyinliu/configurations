@@ -271,6 +271,7 @@ function install_software_with_brew_cask () {
     brew install --cask aquamacs # require config ~/.emacs.d
     brew install --cask oracle-jdk
     brew install --cask qlmarkdown
+    brew tap federico-terzi/espanso && brew install espanso
     ## optional software
     # brew install --cask istat-menus
     # brew install --cask dingtalk
@@ -298,8 +299,6 @@ function install_software_with_brew_cask () {
     # brew install --cask typora
     
     ## TODO following software NOT support yet
-    # brew tap federico-terzi/espanso
-    # brew install espanso
     # brew install --cask vimac
 }
 
