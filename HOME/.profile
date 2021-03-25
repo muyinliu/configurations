@@ -676,8 +676,6 @@ export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 export ASMTOOLSHOME="$HOME/git/asmtools-7.0-build/release/lib/asmtools.jar"
 alias asmtools="java -jar ${ASMTOOLSHOME}"
 
-export SDKROOT=macosx10.14
-
 ########################################################
 ## Python configurations
 export PKG_CONFIG_PATH="/usr/local/Library/Homebrew/pkgconfig:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig"
