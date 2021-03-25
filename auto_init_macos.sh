@@ -298,7 +298,8 @@ function install_software_with_brew_cask () {
     # brew install --cask typora
     
     ## TODO following software NOT support yet
-    # brew install --cask espanso
+    # brew tap federico-terzi/espanso
+    # brew install espanso
     # brew install --cask vimac
 }
 
