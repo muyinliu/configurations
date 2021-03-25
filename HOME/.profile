@@ -665,6 +665,11 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/dist # handle GFW network pr
 
 ########################################################
 ## Java configurations
+
+# openjdk configuration
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+
 # jenv configuration
 #eval "$(jenv init -)"
 # alias for Java asmtools
