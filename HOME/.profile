@@ -13,6 +13,8 @@ export LESS_TERMCAP_ue=$'\e[0m'      # normal
 export MANPAGER="less"
 export MANPATH="/usr/local/share/man:$MANPATH"
 
+export TERM="screen-256color"
+
 # config language environment
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
@@ -37,7 +39,7 @@ alias df='df -h'
 alias grep="grep --color"
 alias opent="open -a 'Sublime Text'"
 alias opena="open -a 'Aquamacs'"
-alias opend="open -a 'Sublime Text' /tmp/A.txt /tmp/B.txt"
+alias opend="[ ! -f /tmp/A.txt ] && touch /tmp/A.txt; [ ! -f /tmp/B.txt ] && touch /tmp/B.txt; /usr/local/bin/ksdiff /tmp/A.txt /tmp/B.txt; open -a 'Sublime Text' /tmp/A.txt /tmp/B.txt"
 alias diff="ksdiff"
 alias ldd="otool -L"
 
