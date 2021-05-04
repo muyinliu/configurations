@@ -227,7 +227,7 @@ function tree () {
 function cdf () {
     local path="`osascript -e 'tell application "Finder" to set myname to POSIX path of (target of window 1 as alias)' 2>/dev/null`";
     if [ -n "$path" ]; then
-        echo "cd to $path";
+        echo "\e[32mcd $path\e[0m";
         cd "$path";
     else
         echo "Finder window finded";
