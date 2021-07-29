@@ -689,6 +689,11 @@ export PATH="$PATH:/Users/muyinliu/.local/bin"
 eval "$(register-python-argcomplete pipx)"
 
 ########################################################
+## LibreSSL configurations
+# use new version of LibreSSL as default command 'openssl'
+export PATH="/usr/local/opt/libressl/bin:$PATH"
+
+########################################################
 ## portable shell commands
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/binutils/bin:$PATH"
