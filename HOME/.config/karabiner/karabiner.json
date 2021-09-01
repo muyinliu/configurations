@@ -444,6 +444,10 @@
                                             {
                                                 "description": "Apple Internal Keyboard",
                                                 "vendor_id": 1452
+                                            },
+                                            {
+                                                "description": "ACER Bluetooth Keyboard",
+                                                "vendor_id": 14
                                             }
                                         ],
                                         "type": "device_if"
