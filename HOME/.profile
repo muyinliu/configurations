@@ -68,7 +68,7 @@ alias 'cdm'='mcd'
 # update indexes of command `locate`
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 
-alias redis-cli="rlwrap redis-cli --raw"
+alias redis-cli="redis-cli --raw"
 alias qrencode="qrterminal"
 alias qrdecode="zbarimg"
 alias hcat="source-highlight --out-format=esc -o STDOUT -i"
