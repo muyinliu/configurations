@@ -217,7 +217,7 @@ function randompassword() {
 
 # tree with replace of empty string
 function tree () {
-    /usr/local/bin/tree "$@" | sed "s/聽/ /g" | ascii2uni -a K
+    $(brew --prefix)/bin/tree "$@" | sed "s/聽/ /g" | ascii2uni -a K
 }
 
 ##########################################################
