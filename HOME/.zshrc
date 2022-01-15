@@ -54,7 +54,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git brew fasd zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ##############################################################
 # User configuration
