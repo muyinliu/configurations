@@ -1,5 +1,6 @@
+backend: Clipboard
 search_shortcut: off
-show_icon: false
+show_icon: true
 matches:
   - trigger: "mn;"
     replace: "MuNote"
