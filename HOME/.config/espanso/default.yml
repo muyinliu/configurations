@@ -1,3 +1,4 @@
+search_shortcut: off
 show_icon: false
 matches:
   - trigger: "mn;"
