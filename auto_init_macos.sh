@@ -240,9 +240,17 @@ function install_software_with_brew () {
     brew install jq
     brew install trash
     brew install cloc
+    brew install iproute2mac
+    brew install uni2ascii
+    # install program language
     brew install sbcl
     brew install roswell
+    brew install openjdk@11
+    brew install maven
     brew install leiningen
+    brew install automake
+    brew install golang
+    brew install node
     # install network tools
     brew install mosh
     brew install autossh
@@ -253,6 +261,7 @@ function install_software_with_brew () {
     brew install proxychains-ng
     brew install libuv
     brew install shadowsocks-libev
+    brew install frpc
 }
 
 function install_software_with_brew_cask () {
@@ -271,7 +280,9 @@ function install_software_with_brew_cask () {
     brew install --cask aquamacs # require config ~/.emacs.d
     brew install --cask oracle-jdk
     brew install --cask qlmarkdown
+    brew install --cask --no-quarantine syntax-highlight
     brew tap federico-terzi/espanso && brew install espanso
+    brew install --cask dozer
     ## optional software
     # brew install --cask istat-menus
     # brew install --cask dingtalk
@@ -288,7 +299,6 @@ function install_software_with_brew_cask () {
     # brew install --cask docker
     # brew install --cask thunder
     # brew install --cask baidunetdisk
-    # brew install --cask dozer
     # brew install --cask kaleidoscope
     # brew install --cask movist
     # brew install --cask qqlive
@@ -309,6 +319,7 @@ function install_oh_my_zsh () {
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 }
 
+# FIXME: should compile with Xcode?
 function install_proximac () {
     colored_echo "  Installing proximac."
     curl -fsSL https://raw.githubusercontent.com/proximac-org/proximac-install/master/install.py | sudo python
