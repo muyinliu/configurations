@@ -242,6 +242,8 @@ function install_software_with_brew () {
     brew install cloc
     brew install iproute2mac
     brew install uni2ascii
+    brew install mdp/tap/qrterminal
+    brew install zbar
     # install program language
     brew install sbcl
     brew install roswell
