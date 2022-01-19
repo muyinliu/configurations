@@ -351,6 +351,13 @@ function install_node_utils() {
     npm install -g wscat
 }
 
+function install_python_utils() {
+    colored_echo "  Installing Python utils."
+    python3 -m pip install --user pipx
+    python3 -m pipx ensurepath
+    pipx install pipenv
+}
+
 function install_other_software () {
     echo ""
     colored_echo "Installing other software."
@@ -359,6 +366,7 @@ function install_other_software () {
     install_quicklisp
     install_slime
     install_node_utils
+    install_python_utils
 }
 
 function init_macos_configs () {
