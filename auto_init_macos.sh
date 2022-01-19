@@ -346,6 +346,11 @@ function initall_slime () {
     sbcl --eval "(ql:quickload 'swank)"
 }
 
+function install_node_utils() {
+    colored_echo "  Installing Node.js utils."
+    npm install -g wscat
+}
+
 function install_other_software () {
     echo ""
     colored_echo "Installing other software."
@@ -353,6 +358,7 @@ function install_other_software () {
     install_proximac
     install_quicklisp
     install_slime
+    install_node_utils
 }
 
 function init_macos_configs () {
