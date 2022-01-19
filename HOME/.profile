@@ -42,6 +42,7 @@ alias opena="open -a 'Aquamacs'"
 alias opend="[ ! -f /tmp/A.txt ] && touch /tmp/A.txt; [ ! -f /tmp/B.txt ] && touch /tmp/B.txt; /usr/local/bin/ksdiff /tmp/A.txt /tmp/B.txt; open -a 'Sublime Text' /tmp/A.txt /tmp/B.txt"
 alias diff="ksdiff"
 alias ldd="otool -L"
+alias ta="tig --all"
 
 # help doc for builtin commands
 function help() {
