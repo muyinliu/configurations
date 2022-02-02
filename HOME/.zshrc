@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew fasd zsh-autosuggestions)
+plugins=(git brew fasd zsh-autosuggestions history)
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -63,7 +63,5 @@ source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 autoload -U bashcompinit
 bashcompinit
 
-## disable duplicate command history
-setopt HIST_IGNORE_ALL_DUPS
 
 if [ -f ~/.profile ]; then . ~/.profile; fi
