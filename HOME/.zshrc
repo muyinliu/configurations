@@ -63,4 +63,7 @@ source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 autoload -U bashcompinit
 bashcompinit
 
+## disable duplicate command history
+setopt HIST_IGNORE_ALL_DUPS
+
 if [ -f ~/.profile ]; then . ~/.profile; fi
