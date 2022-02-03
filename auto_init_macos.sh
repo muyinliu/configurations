@@ -238,6 +238,7 @@ function install_software_with_brew () {
     brew install emacs
     brew install ag
     brew install jq
+    brew install pup
     brew install trash
     brew install cloc
     brew install iproute2mac
