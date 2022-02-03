@@ -163,35 +163,20 @@
                   "description": "Apple Internal Keyboard"
                 },
                 {
-                  "vendor_id": 14,
-                  "description": "ACER Bluetooth Keyboard"
-                }
-              ]
-            }
-          ],
-          "from": {
-            "key_code": "caps_lock",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_control"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "device_if",
-              "identifiers": [
-                {
                   "vendor_id": 1256,
                   "description": "Rapoo Bluetooth Keyboard"
+                },
+                {
+                  "vendor_id": 14,
+                  "description": "ACER Bluetooth Keyboard"
+                },
+                {
+                  "vendor_id": 44580,
+                  "description": "ACER Bluetooth Keyboard 3.0G"
+                },
+                {
+                  "vendor_id": 9639,
+                  "description": "ACER Bluetooth Keyboard 2.4G Receiver"
                 }
               ]
             }
@@ -219,33 +204,22 @@
                 {
                   "vendor_id": 1452,
                   "description": "Apple Internal Keyboard"
-                }
-              ]
-            }
-          ],
-          "from": {
-            "key_code": "left_control",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "caps_lock"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "device_if",
-              "identifiers": [
+                },
                 {
                   "vendor_id": 1256,
                   "description": "Rapoo Bluetooth Keyboard"
+                },
+                {
+                  "vendor_id": 14,
+                  "description": "ACER Bluetooth Keyboard"
+                },
+                {
+                  "vendor_id": 44580,
+                  "description": "ACER Bluetooth Keyboard 3.0G"
+                },
+                {
+                  "vendor_id": 9639,
+                  "description": "ACER Bluetooth Keyboard 2.4G Receiver"
                 }
               ]
             }
