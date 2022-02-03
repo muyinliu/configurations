@@ -1,13 +1,14 @@
 export PAGER="less"
-## use termcap magic to highlight mandoc
-# command or paragraph title, 'b' of 'mb' means blink
+
+# use termcap magic to highlight mandoc
+## command or paragraph title, 'b' of 'mb' means blink
 export LESS_TERMCAP_mb=$'\e[1;32m'   # bold, green
 export LESS_TERMCAP_md=$'\e[1;32m'   # bold, green
 export LESS_TERMCAP_me=$'\e[0m'      # normal
-# search keyword
+## search keyword
 export LESS_TERMCAP_so=$'\e[30;47m'  # black with background white
 export LESS_TERMCAP_se=$'\e[0m'      # normal
-# link, email, some subcommand or option value
+## link, email, some subcommand or option value
 export LESS_TERMCAP_us=$'\e[1;4;31m' # bold, underlined, red
 export LESS_TERMCAP_ue=$'\e[0m'      # normal
 export MANPAGER="less"
@@ -22,11 +23,12 @@ export LANG="en_US.UTF-8"
 export EDITOR="vim"
 export UNISON="/root/.unison"
 
-# the number of commands stored in Bash History
+# the number of commands stored in Bash/Zsh History
 export HISTSIZE=10000
+# add alias to clean command history
 alias historyc='echo "" > $HISTFILE & exec $SHELL -l'
 
-## User specific aliases and functions
+# User specific aliases and functions
 alias rm='trash'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -44,7 +46,7 @@ alias diff="ksdiff"
 alias ldd="otool -L"
 alias ta="tig --all"
 
-# help doc for builtin commands
+## help doc for builtin commands
 function help() {
     case "$(basename $SHELL)" in
         zsh)
@@ -59,23 +61,28 @@ function help() {
     esac
 }
 
-# cd to ancestor with depth n
+## cd to ancestor with depth n
 function mcd() {
   cd $(printf "%0.s../" $(seq 1 $1 ));
 }
 alias 'cd..'='mcd'
 alias 'cdm'='mcd'
 
-# update indexes of command `locate`
+## update indexes of command `locate`
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 
+## support characters NOT in ASCII
 alias redis-cli="redis-cli --raw"
+
+## add alias for QRcode
 alias qrencode="qrterminal"
 alias qrdecode="zbarimg"
+
+## hightlight version of cat
 alias hcat="source-highlight --out-format=esc -o STDOUT -i"
 alias pycat='pygmentize -g -O style=emacs'
 
-# convenient uncompress package commands
+## convenient uncompress package commands
 alias unrar='rar x'
 alias untar='tar -xf'
 alias untargz='tar -xzf'
@@ -96,7 +103,7 @@ function un7z() {
     fi
 }
 
-# find process who is using the port
+## find process who is using the port
 function port() {
     if [ -z $1 ]; then
         echo "Usage: port [port], example: port 6379";
@@ -105,26 +112,10 @@ function port() {
         sudo lsof -i:$port | grep -v "PID";
     fi
 }
-function whichport () {
-    if [ -z $1 ]; then
-        echo "Get the ports of process is using.";
-        echo "Usage: whichport [port]";
-    else
-        local port1="$1";
-        local test1=`sudo lsof -i:$port1 | grep -v "PID" | awk '{print$2}'`;
-        if [ -z $test1 ]; then
-            echo "There is no process use port $port1";
-        else
-            ps aux | grep --color -v "grep" | grep --color "`sudo lsof -i:$port1 | grep -v "PID" | awk '{print$2}'`";
-        fi;
-    fi
-}
 
-#function title () {
-#    echo -e '\033k'$1'\033\\';
-#}
 alias title="printf '\033]0;%s\007'"
 
+## send message to Notification Center of macOS
 export notifier=$HOME/Library/Workflows/Notification.workflow
 function notify () {
     if [ -z $1 ]; then
@@ -144,7 +135,7 @@ function notify () {
     fi
 }
 
-# wait some time and send notification
+## wait some time and send notification
 function timeout() {
     # handle parameters
     if [ -z "$1" ]; then
@@ -165,30 +156,10 @@ function timeout() {
         sleep 1;
     done
     printf "\n";
-    /usr/local/bin/terminal-notifier -title "Timeout ${minutes}m" -message "$message"
+    terminal-notifier -title "Timeout ${minutes}m" -message "$message"
 }
 
-# kill process by name of process ;; TODO how about `killall`
-function killbyname () {
-    if [ -z $1 ]; then
-        echo "Usage: killbyname [name of process]";
-    else
-        local name=$1;
-        ps aux | grep --color "$name" | grep --color -v "grep" | awk '{print $2}' | xargs sudo kill -9;
-    fi
-}
-
-# ls with grep
-function lsg () {
-    ls | grep "$1";
-}
-
-# ls with grep
-function lg () {
-    ls -alh | grep "$1";
-}
-
-# get length of string
+## get length of string
 function length () {
     local var1=$1;
     echo "${#var1}"
@@ -206,6 +177,7 @@ function prepend_path () {
     fi
 }
 
+## generate random password with characters matches [0-9a-ZA-Z]
 function randompassword() {
     if [ -z "$1" ]; then
         local length=16;
@@ -216,15 +188,15 @@ function randompassword() {
     echo "Random password with length $length has been copied to clipboard"
 }
 
-# tree with replace of empty string
+## tree with replace of empty string
 function tree () {
     $(brew --prefix)/bin/tree "$@" | sed "s/聽/ /g" | ascii2uni -a K
 }
 
 ##########################################################
-## integrate with Finder
+# integrate with Finder
 
-# cd to current directory in Finder
+## cd to current directory in Finder
 function cdf () {
     local path="`osascript -e 'tell application "Finder" to set myname to POSIX path of (target of window 1 as alias)' 2>/dev/null`";
     if [ -n "$path" ]; then
@@ -235,7 +207,7 @@ function cdf () {
     fi;
 }
 
-# return selected paths in Finder
+## return selected paths in Finder
 function finder_selected_paths () {
     echo "`osascript \
                -e 'tell application \"Finder\"' \
@@ -247,7 +219,7 @@ function finder_selected_paths () {
                -e 'end tell' 2>/dev/null`";
 }
 
-# return selected files in Finder
+## return selected files in Finder
 function finder_selected_files () {
     echo "`osascript \
                -e 'tell application \"Finder\"' \
@@ -285,7 +257,7 @@ alias ff="finder_selected_files"
 alias fp="finder_selected_paths"
 alias fd="finder_selected_dirs"
 
-# rm current selected files/directories in Finder
+## rm current selected files/directories in Finder
 function rmf () {
     local paths=`finder_selected_paths`;
     if [ -n "$paths" ]; then
@@ -318,7 +290,7 @@ function rmf () {
     fi;
 }
 
-# generate md/hash of selected files in Finder
+## generate md/hash of selected files in Finder
 function hashf () {
     local paths=`finder_selected_files`;
     if [ -n "$paths" ]; then
@@ -352,7 +324,7 @@ function hashf () {
 }
 alias mdf="hashf"
 
-# convert selected files in Finder from charset A to B
+## convert selected files in Finder from charset A to B
 function iconvf () {
     local paths=`finder_selected_files`;
     if [ -n "$paths" ]; then
@@ -398,10 +370,7 @@ function iconvf () {
 }
 
 ##########################################################
-## Network related
-
-# alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-# alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+# Network related
 
 function urlencode () {
     if [ -z "$1" ]; then
@@ -414,7 +383,7 @@ function urlencode () {
 }
 
 ## Query movie info from movie.douban.com
-#    Note: require xargs, node, nightmare(install with npm), pup & jq
+##   Note: require xargs, node, nightmare(install with npm), pup & jq
 function movie () {
     echo "$1" | urlencode \
               | xargs -I NAME \
@@ -425,7 +394,7 @@ function movie () {
 }
 
 ## Query movie info from m.douban.com
-#    Note: require xargs, curl, pup & jq
+##   Note: require xargs, curl, pup & jq
 function movie_small () {
     echo "$1" | urlencode \
               | xargs -I NAME curl -s "https://m.douban.com/search/?query=NAME&type=movie" \
@@ -440,7 +409,7 @@ function movie_without_link () {
 }
 
 ## Query book info from movie.douban.com
-#    Note: require xargs, node, nightmare(install with npm), pup & jq
+##   Note: require xargs, node, nightmare(install with npm), pup & jq
 function book () {
     echo "$1" | urlencode \
               | xargs -I NAME \
@@ -451,7 +420,7 @@ function book () {
 }
 
 ## Query book info from m.douban.com
-#    Note: require xargs, curl, pup & jq
+##   Note: require xargs, curl, pup & jq
 function book_without_link () {
     echo "$1" | urlencode \
               | xargs -I NAME curl -s "https://m.douban.com/search/?query=NAME&type=book" \
@@ -460,65 +429,17 @@ function book_without_link () {
 }
 
 #########################################################
-## Git configuration
-function arcpatch() {
-    if [ -z $1 ]; then
-        echo "Usage: arcpatch [Diff], example: arcpatch D4309";
-    else
-        git checkout master && git pull && git branch | grep arcpatch | xargs git branch -D && arc patch $1;
-    fi
-}
-
+# Git configuration
 export GIT_TERMINAL_PROMPT=1
-function gittag() {
-    if [ -z $1 ]; then
-        echo "Usage: gittag [Task-ID], example: gittag T0001";
-    else
-        git tag -a PRD_$1 && git push origin --tags
-    fi
-}
 
 ########################################################
-## Homebrew configuration
-export HOMEBREW_NO_AUTO_UPDATE=1 # do NOT update homebrew every time
+# Homebrew configuration
+## do NOT update homebrew every time
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 ########################################################
-## debug WAP with UC browser(through USB)
-# link Android Phone to PC/Mac with USB
-alias ucinspect="adb forward tcp:9998 tcp:9998" 
-# execute `ucinspect`
-# then visit URL `http://localhost:9998/` with Chrome/Safari and debug
-
-export PATH="/Library/StartupItems/MySQLCOM:/usr/local/mysql/bin:/opt/X11/bin:$HOME/.roswell/bin:$HOME/git/arcanist/bin:/usr/local/bin/z_tools:/usr/local/sbin:$PATH"
-export DYLD_LIBRARY_PATH="/usr/local/cuda/lib:$DYLD_LIBRARY_PATH"
-
-########################################################
-## Proxy config
-# TODO ShadowVPN still available??
-alias shadowvpnon="sudo shadowvpn -c /etc/shadowvpn/client.conf -s start"
-alias shadowvpnoff="sudo shadowvpn -c /etc/shadowvpn/client.conf -s stop"
+# Proxy config
 alias gfw="proxychains4 -q -f /etc/proxychains.conf"
-
-# enable Gmail proxy in Mail
-function gmail() {
-    case "$1" in
-        start|enable|on)
-            # enable Gmail in Mail(require password)
-            proximac start -c /etc/proximac.conf -d;
-            open -a "Mail";
-            ;;
-        stop|disable|off)
-            # disable Gmail in Mail
-            pkill "Mail";
-            proximac stop;
-            ;;
-        *)
-            echo "Usage:";
-            echo "  enable Gmail:  gmail [start | enable | on]";
-            echo "  disable Gmail: gmail [stop | disable | off]";
-            ;;
-    esac
-}
 
 function proxy() {
     if [ -z "$1" ]; then
@@ -599,20 +520,17 @@ function git_proxy() {
 ########################################################
 # DNS configuration
 
-dns() {
-    case "$1" in
-        *)
-            echo "refreshing DNS config..."
-            set -x
-            sudo killall -HUP mDNSResponder;
-            # sudo killall mDNSResponderHelper; # useless on macOS 10.14
-            sudo dscacheutil -flushcache;
-            ;;
-    esac
+function dns() {
+    echo "refreshing DNS config..."
+    set -x
+    sudo killall -HUP mDNSResponder;
+    # sudo killall mDNSResponderHelper; # useless on macOS 10.14
+    sudo dscacheutil -flushcache;
 }
 
 ########################################################
-## Common Lisp configuration
+# Common Lisp configuration
+
 alias ros="rlwrap ros"
 alias sbcl="rlwrap sbcl"
 alias gdbsbcl="sudo gdb `which sbcl` `ps aux | grep -v grep | grep -v gdb | grep sbcl | awk '{print $2}'`"
@@ -633,77 +551,68 @@ alias alisp="rlwrap alisp"
 alias clisp="rlwrap clisp"
 
 ########################################################
-## OPAM configuration
+# OPAM configuration
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 ########################################################
-## SQLite configuration
+# SQLite configuration
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/sqlite/lib"
 export CPPFLAGS="-I/usr/local/opt/sqlite/include"
 export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 ########################################################
-## Ruby configuration
+# Ruby configuration
 # rbenv config
 # if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ########################################################
-## Node.js configuration
-export NODE_PATH=/usr/local/lib/node_modules:$HOME/.nvm/versions/node/v10.15.3/lib/node_modules
+# Node.js configuration
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
 --cache=$HOME/.npm/.cache/cnpm \
 --disturl=https://npm.taobao.org/dist \
 --userconfig=$HOME/.cnpmrc"
-alias sudocnpm="sudo npm --registry=https://registry.npm.taobao.org \
---cache=$HOME/.npm/.cache/cnpm \
---disturl=https://npm.taobao.org/dist \
---userconfig=$HOME/.cnpmrc"
 
-# nvm config
+## nvm config
 export NVM_DIR="$HOME/.nvm"
 #[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 #[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/dist # handle GFW network problem
+# handle GFW network problem
+export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/dist
 
 ########################################################
-## Java configurations
+# Java configurations
 
-# openjdk configuration
+## openjdk configuration
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
-# jenv configuration
+## jenv configuration
 #eval "$(jenv init -)"
-# alias for Java asmtools
+## alias for Java asmtools
 export ASMTOOLSHOME="$HOME/git/asmtools-7.0-build/release/lib/asmtools.jar"
 alias asmtools="java -jar ${ASMTOOLSHOME}"
 
 ########################################################
-## Python configurations
+# Python configurations
 export PKG_CONFIG_PATH="/usr/local/Library/Homebrew/pkgconfig:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig"
 export INFOPATH=/sw/share/info:/sw/info:/usr/share/info
 unset PYTHONPATH
 export PATH="$PATH:/Users/muyinliu/Library/Python/3.9/bin"
 export PATH="$PATH:/Users/muyinliu/.local/bin"
-### enable pipx argument completion
+## enable pipx argument completion
 eval "$(register-python-argcomplete pipx)"
 
 ########################################################
-## LibreSSL configurations
-# use new version of LibreSSL as default command 'openssl'
-export PATH="/usr/local/opt/libressl/bin:$PATH"
-
-########################################################
-## portable shell commands
-### for Mac with Apple Silicon CPUs
+# portable shell commands
+## for Mac with Apple Silicon CPUs
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
-### for Mac with Intel CPUs
+## for Mac with Intel CPUs
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/binutils/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
@@ -712,6 +621,6 @@ export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gawk/libexec/gnubin:$PATH"
 
 #################################################
-## .private_profile
+# .private_profile
 ##   private configs like HOMEBREW_GITHUB_API_TOKEN
 if [ -f ~/.private_profile ]; then . ~/.private_profile; fi
