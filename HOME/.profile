@@ -696,6 +696,14 @@ export PATH="/usr/local/opt/libressl/bin:$PATH"
 
 ########################################################
 ## portable shell commands
+### for Mac with Apple Silicon CPUs
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
+### for Mac with Intel CPUs
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/binutils/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
