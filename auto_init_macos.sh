@@ -133,6 +133,10 @@ function install_apple_command_line_tools () {
     fi
 }
 
+function install_rosetta() {
+    /usr/sbin/softwareupdate --install-rosetta
+}
+
 function install_brew () {
     echo ""
     colored_echo "Installing Homebrew."
@@ -420,6 +424,7 @@ prompt_admin_password
 activate_terminal_window
 if $UPDATE_SYSTEM; then update_system; fi;
 install_apple_command_line_tools
+if [[ "$(sysctl -n machdep.cpu.brand_string)" == *M1* ]]; then install_rosetta; fi;
 
 install_brew
 if $SPEEDUP; then enable_mirror_for_brew; fi;
