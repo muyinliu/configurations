@@ -9,6 +9,9 @@ nnoremap <C-L> :set nonumber!<CR>
 nnoremap <C-P> :set paste<CR>
 "Toggle paste state
 
+nnoremap <C-T> :tabnew<CR>
+"New Tab
+
 syntax on
 
 set tabstop=4
