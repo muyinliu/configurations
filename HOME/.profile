@@ -45,6 +45,10 @@ alias opend="[ ! -f /tmp/A.txt ] && touch /tmp/A.txt; [ ! -f /tmp/B.txt ] && tou
 alias diff="ksdiff"
 alias ldd="otool -L"
 alias ta="tig --all"
+alias gst-fzf="git ls-files -m -o --exclude-standard | fzf -m --print0"
+alias gai="gst-fzf | xargs -0 git add"
+alias gdi="gst-fzf | xargs -0 git diff"
+alias gcoi="gst-fzf | xargs -0 git checkout --"
 
 ## help doc for builtin commands
 function help() {
