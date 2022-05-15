@@ -236,6 +236,7 @@ function install_software_with_brew () {
     brew install tmux
     brew install htop
     brew install tree
+    brew install fzf
     brew install ncdu
     brew install rlwrap
     brew install vim
