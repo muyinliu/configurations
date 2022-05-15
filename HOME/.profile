@@ -441,6 +441,10 @@ export GIT_TERMINAL_PROMPT=1
 ## do NOT update homebrew every time
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+## alias for Intel version & Apple Silicon version of brew
+alias ibrew="arch -x86_64 /usr/local/bin/brew"
+alias mbrew="arch -arm64e /opt/homebrew/bin/brew"
+
 ########################################################
 # Proxy config
 alias gfw="proxychains4 -q -f /etc/proxychains.conf"
