@@ -228,8 +228,6 @@ function install_software_with_brew () {
     brew install gawk
     # install zsh-syntax-highlighting
     brew install zsh-syntax-highlighting
-    # install fasd
-    brew install fasd
     # install utilities
     brew install git
     brew install tig
@@ -241,6 +239,7 @@ function install_software_with_brew () {
     brew install rlwrap
     brew install vim
     brew install emacs
+    brew install bat
     brew install ag
     brew install jq
     brew install pup
