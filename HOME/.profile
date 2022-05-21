@@ -45,10 +45,6 @@ alias opend="[ ! -f /tmp/A.txt ] && touch /tmp/A.txt; [ ! -f /tmp/B.txt ] && tou
 alias diff="ksdiff"
 alias ldd="otool -L"
 alias ta="tig --all"
-alias gst-fzf="git ls-files -m -o --exclude-standard | fzf -m --print0"
-alias gai="gst-fzf | xargs -0 git add"
-alias gdi="gst-fzf | xargs -0 git diff"
-alias gcoi="gst-fzf | xargs -0 git checkout --"
 
 ## help doc for builtin commands
 function help() {
@@ -451,8 +447,26 @@ function book_without_link () {
 }
 
 #########################################################
+# fzf configuration
+
+if [[ "$(command -v bat)" ]]; then
+    export FZF_DEFAULT_OPTS="--bind 'ctrl-v:toggle-preview,ctrl-u:preview-page-up,ctrl-d:preview-page-down,ctrl-y:execute-silent(cat {+f} | pbcopy)' --preview 'bat --style numbers,changes --color=always {}'"
+else
+    export FZF_DEFAULT_OPTS="--bind 'ctrl-v:toggle-preview,ctrl-u:preview-page-up,ctrl-d:preview-page-down,ctrl-y:execute-silent(cat {+f} | pbcopy)' --preview 'less {}'"
+fi;
+
+#########################################################
 # Git configuration
 export GIT_TERMINAL_PROMPT=1
+
+## git with fzf alias configuration
+alias gst-fzf="git ls-files -m -o --exclude-standard | fzf -m --print0"
+alias gai="gst-fzf | xargs -0 git add"
+### auto show git diff of current file(if NOT new file and diff exists)
+### use Control + a to trigger command: git add
+### use Control + s to copy filename to clipboard
+alias gdi="gst-fzf --preview 'git diff --color=always {}' --bind 'ctrl-a:execute-silent(git add {})' --bind 'ctrl-s:execute-silent(basename {} | pbcopy)'"
+alias gcoi="gst-fzf | xargs -0 git checkout --"
 
 ########################################################
 # Homebrew configuration
