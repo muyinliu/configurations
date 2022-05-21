@@ -192,6 +192,24 @@ function randompassword() {
     echo "Random password with length $length has been copied to clipboard"
 }
 
+## generate random usable port
+function random_port() {
+    local port_start;
+    local port_end;
+    port_start="${1:-1024}";
+    port_end="${2:-65535}";
+    local port;
+    port="0"
+    while [ $port -eq "0" ]; do
+        local temp_port;
+        temp_port="$(shuf -i "${port_start}"-"${port_end}" -n1)"
+        if [[ "$(netstat -an)" != *":$temp_port "* ]]; then
+            port="$temp_port"
+        fi
+    done
+    echo "$port"
+}
+
 ## tree with replace of empty string
 function tree () {
     $(brew --prefix)/bin/tree "$@" | sed "s/聽/ /g" | ascii2uni -a K
