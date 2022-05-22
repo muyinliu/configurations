@@ -401,11 +401,12 @@ function urlencode () {
 }
 
 ## Query movie info from movie.douban.com
-##   Note: require xargs, node, nightmare(install with npm), pup & jq
+##   Note: require xargs, node, playwright(install with command: npm install -g playwright), pup & jq
+export USER_AGENT="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
 function movie () {
     echo "$1" | urlencode \
               | xargs -I NAME \
-                  node -e "const Nightmare = require('nightmare'); const nightmare = new Nightmare({waitTimeout: 5000}); nightmare.goto(process.argv[1]).wait('.item-root').evaluate(() => {return document.body.outerHTML;}).end().then(body_html => {console.log(body_html);});" \
+                  node -e "const { chromium } = require('playwright');(async () => { const browser = await chromium.launch(); const page = await browser.newPage({userAgent: '$USER_AGENT'}); await page.goto(process.argv[1]); console.log(await page.content()); await browser.close();})();" \
                        "https://search.douban.com/movie/subject_search?search_text=NAME&cat=1002" \
               | pup '.item-root json{}' \
               | jq 'map({"title": .children[1].children[0].children[0].text, "rating": .children[1].children[1].children[1].text, "meta_abstract": .children[1].children[2].text, "meta_abstract2": .children[1].children[3].text, "url": .children[1].children[0].children[0].href, "image": .children[0].children[0].src})'
@@ -431,7 +432,7 @@ function movie_without_link () {
 function book () {
     echo "$1" | urlencode \
               | xargs -I NAME \
-                  node -e "const Nightmare = require('nightmare'); const nightmare = new Nightmare({waitTimeout: 5000}); nightmare.goto(process.argv[1]).wait('.item-root').evaluate(() => {return document.body.outerHTML;}).end().then(body_html => {console.log(body_html);});" \
+                  node -e "const { chromium } = require('playwright');(async () => { const browser = await chromium.launch(); const page = await browser.newPage({userAgent: '$USER_AGENT'}); await page.goto(process.argv[1]); console.log(await page.content()); await browser.close();})();" \
                        "https://search.douban.com/book/subject_search?search_text=NAME&cat=1001" \
               | pup '.item-root json{}' \
               | jq 'map(select(.children[1].children[0].children[0].text != null)) | map({"title": .children[1].children[0].children[0].text, "rating": .children[1].children[1].children[1].text, "meta_abstract": .children[1].children[2].text, "url": .children[1].children[0].children[0].href, "image": .children[0].children[0].src})'
