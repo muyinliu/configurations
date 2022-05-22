@@ -610,9 +610,11 @@ export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig:$PKG_CONFIG_PATH"
 ########################################################
 # Node.js configuration
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
---cache=$HOME/.npm/.cache/cnpm \
---disturl=https://npm.taobao.org/dist \
---userconfig=$HOME/.cnpmrc"
+                --cache=$HOME/.npm/.cache/cnpm \
+                --disturl=https://npm.taobao.org/dist \
+                --userconfig=$HOME/.cnpmrc"
+
+export NODE_PATH="/opt/homebrew/lib/node_modules:$NODE_PATH"
 
 ## nvm config
 export NVM_DIR="$HOME/.nvm"
