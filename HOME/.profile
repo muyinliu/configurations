@@ -393,10 +393,10 @@ function iconvf () {
 function urlencode () {
     if [ -z "$1" ]; then
         # read only 1 line from STDIN without EOF
-        python -c "import sys, urllib as ul; print ul.quote_plus(sys.stdin.readline()[:-1])"
+        python -c "import sys, urllib.parse; print(urllib.parse.quote_plus(sys.stdin.readline()[:-1]))"
     else
         # use parameter
-        python -c "import sys, urllib as ul; print ul.quote_plus(\"$1\")"
+        python -c "import sys, urllib.parse; print(urllib.parse.quote_plus(\"$1\"))"
     fi;
 }
 
