@@ -249,6 +249,7 @@ function install_software_with_brew () {
     brew install uni2ascii
     brew install mdp/tap/qrterminal
     brew install zbar
+    brew install sha3sum
     # install program language
     brew install sbcl
     brew install roswell
