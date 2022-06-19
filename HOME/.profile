@@ -466,7 +466,7 @@ alias gai="gst-fzf | xargs -0 git add"
 ### auto show git diff of current file(if NOT new file and diff exists)
 ### use Control + a to trigger command: git add
 ### use Control + s to copy filename to clipboard
-alias gdi="gst-fzf --preview 'git diff --exit-code --color=always {} && cat {}' --bind 'ctrl-a:execute-silent(git add {})' --bind 'ctrl-s:execute-silent(basename {} | pbcopy)'"
+alias gdi="gst-fzf --preview 'git diff --exit-code --color=always {} && cat {}' --bind 'ctrl-a:execute-silent(git add {})' --bind 'ctrl-s:execute-silent(echo \${\$(basename {})%%.*} | pbcopy)'"
 alias gcoi="gst-fzf | xargs -0 git checkout --"
 
 ########################################################
