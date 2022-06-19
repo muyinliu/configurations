@@ -451,9 +451,17 @@ function book_without_link () {
 # fzf configuration
 
 if [[ "$(command -v bat)" ]]; then
-    export FZF_DEFAULT_OPTS="--bind 'ctrl-v:toggle-preview,ctrl-u:preview-page-up,ctrl-d:preview-page-down,ctrl-y:execute-silent(cat {+f} | pbcopy)' --preview 'bat --style numbers,changes --color=always {}'"
+    export FZF_DEFAULT_OPTS="--bind 'ctrl-v:toggle-preview,ctrl-u:preview-page-up,ctrl-d:preview-page-down' \
+                             --bind 'ctrl-s:execute-silent(echo -n \${\$(basename {})%%.*} | pbcopy)' \
+                             --bind 'ctrl-f:execute-silent(echo -n \$(basename {}) | pbcopy)' \
+                             --bind 'ctrl-y:execute-silent(echo -n {} | pbcopy)' \
+                             --preview 'bat --style numbers,changes --color=always {}'"
 else
-    export FZF_DEFAULT_OPTS="--bind 'ctrl-v:toggle-preview,ctrl-u:preview-page-up,ctrl-d:preview-page-down,ctrl-y:execute-silent(cat {+f} | pbcopy)' --preview 'less {}'"
+    export FZF_DEFAULT_OPTS="--bind 'ctrl-v:toggle-preview,ctrl-u:preview-page-up,ctrl-d:preview-page-down' \
+                             --bind 'ctrl-s:execute-silent(echo -n \${\$(basename {})%%.*} | pbcopy)' \
+                             --bind 'ctrl-f:execute-silent(echo -n \$(basename {}) | pbcopy)' \
+                             --bind 'ctrl-y:execute-silent(echo -n {} | pbcopy)' \
+                             --preview 'less {}'"
 fi;
 
 #########################################################
@@ -467,10 +475,7 @@ alias gai="gst-fzf | xargs -0 git add"
 ### use Control + a to trigger command: git add
 ### use Control + s to copy filename to clipboard
 alias gdi="gst-fzf --preview 'git diff --exit-code --color=always {} && cat {}' \
-                   --bind 'ctrl-a:execute-silent(git add {})' \
-                   --bind 'ctrl-s:execute-silent(echo -n \${\$(basename {})%%.*} | pbcopy)' \
-                   --bind 'ctrl-f:execute-silent(echo -n \$(basename {}) | pbcopy)' \
-                   --bind 'ctrl-h:execute-silent(echo -n {} | pbcopy)'"
+                   --bind 'ctrl-a:execute-silent(git add {})'"
 alias gcoi="gst-fzf | xargs -0 git checkout --"
 
 ########################################################
