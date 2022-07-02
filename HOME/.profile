@@ -46,6 +46,15 @@ alias diff="ksdiff"
 alias ldd="otool -L"
 alias ta="tig --all"
 
+# simulate pwdx for macOS with command lsof
+function pwdx {
+    if ps aux | grep -v grep | grep -q "$1"; then
+        echo "$1: $(lsof -a -d cwd -p $1 -n -Fn | awk '/^n/ {print substr($0,2)}')"
+    else
+        echo "$1: No such process"
+    fi;
+}
+
 ## help doc for builtin commands
 function help() {
     case "$(basename $SHELL)" in
