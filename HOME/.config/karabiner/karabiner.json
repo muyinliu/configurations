@@ -460,6 +460,10 @@
                                             {
                                                 "description": "ACER Bluetooth Keyboard 2.4G Receiver",
                                                 "vendor_id": 9639
+                                            },
+                                            {
+                                                "description": "Dell USB Keyboard",
+                                                "vendor_id": 16700
                                             }
                                         ],
                                         "type": "device_if"
@@ -503,6 +507,10 @@
                                             {
                                                 "description": "ACER Bluetooth Keyboard 2.4G Receiver",
                                                 "vendor_id": 9639
+                                            },
+                                            {
+                                                "description": "Dell USB Keyboard",
+                                                "vendor_id": 16700
                                             }
                                         ],
                                         "type": "device_if"
@@ -530,6 +538,10 @@
                                             {
                                                 "description": "Rapoo Bluetooth Keyboard",
                                                 "vendor_id": 1256
+                                            },
+                                            {
+                                                "description": "Dell USB Keyboard",
+                                                "vendor_id": 16700
                                             }
                                         ],
                                         "type": "device_if"
@@ -557,6 +569,10 @@
                                             {
                                                 "description": "Rapoo Bluetooth Keyboard",
                                                 "vendor_id": 1256
+                                            },
+                                            {
+                                                "description": "Dell USB Keyboard",
+                                                "vendor_id": 16700
                                             }
                                         ],
                                         "type": "device_if"
@@ -584,6 +600,10 @@
                                             {
                                                 "description": "Rapoo Bluetooth Keyboard",
                                                 "vendor_id": 1256
+                                            },
+                                            {
+                                                "description": "Dell USB Keyboard",
+                                                "vendor_id": 16700
                                             }
                                         ],
                                         "type": "device_if"
@@ -611,6 +631,10 @@
                                             {
                                                 "description": "Rapoo Bluetooth Keyboard",
                                                 "vendor_id": 1256
+                                            },
+                                            {
+                                                "description": "Dell USB Keyboard",
+                                                "vendor_id": 16700
                                             }
                                         ],
                                         "type": "device_if"

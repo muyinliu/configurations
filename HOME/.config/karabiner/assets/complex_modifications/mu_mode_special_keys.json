@@ -177,6 +177,10 @@
                 {
                   "vendor_id": 9639,
                   "description": "ACER Bluetooth Keyboard 2.4G Receiver"
+                },
+                {
+                  "vendor_id": 16700,
+                  "description": "Dell USB Keyboard"
                 }
               ]
             }
@@ -220,6 +224,10 @@
                 {
                   "vendor_id": 9639,
                   "description": "ACER Bluetooth Keyboard 2.4G Receiver"
+                },
+                {
+                  "vendor_id": 16700,
+                  "description": "Dell USB Keyboard"
                 }
               ]
             }
@@ -247,6 +255,10 @@
                 {
                   "vendor_id": 1256,
                   "description": "Rapoo Bluetooth Keyboard"
+                },
+                {
+                  "vendor_id": 16700,
+                  "description": "Dell USB Keyboard"
                 }
               ]
             }
@@ -274,6 +286,10 @@
                 {
                   "vendor_id": 1256,
                   "description": "Rapoo Bluetooth Keyboard"
+                },
+                {
+                  "vendor_id": 16700,
+                  "description": "Dell USB Keyboard"
                 }
               ]
             }
@@ -301,6 +317,10 @@
                 {
                   "vendor_id": 1256,
                   "description": "Rapoo Bluetooth Keyboard"
+                },
+                {
+                  "vendor_id": 16700,
+                  "description": "Dell USB Keyboard"
                 }
               ]
             }
@@ -328,6 +348,10 @@
                 {
                   "vendor_id": 1256,
                   "description": "Rapoo Bluetooth Keyboard"
+                },
+                {
+                  "vendor_id": 16700,
+                  "description": "Dell USB Keyboard"
                 }
               ]
             }
