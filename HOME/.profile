@@ -668,8 +668,8 @@ alias asmtools="java -jar ${ASMTOOLSHOME}"
 export PKG_CONFIG_PATH="/usr/local/Library/Homebrew/pkgconfig:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig"
 export INFOPATH=/sw/share/info:/sw/info:/usr/share/info
 unset PYTHONPATH
-export PATH="$PATH:/Users/muyinliu/Library/Python/3.9/bin"
-export PATH="$PATH:/Users/muyinliu/.local/bin"
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+export PATH="$PATH:$HOME/.local/bin"
 ## enable pipx argument completion
 eval "$(register-python-argcomplete pipx)"
 
