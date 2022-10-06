@@ -674,6 +674,10 @@ export PATH="$PATH:/Users/muyinliu/.local/bin"
 eval "$(register-python-argcomplete pipx)"
 
 ########################################################
+# Rust configurations
+export PATH="$HOME/.cargo/bin:$PATH"
+
+########################################################
 # portable shell commands
 ## for Mac with Apple Silicon CPUs
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
