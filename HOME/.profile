@@ -634,6 +634,11 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 
 export NODE_PATH="/opt/homebrew/lib/node_modules:$NODE_PATH"
 
+## pnpm config
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+## pnpm end
+
 ## nvm config
 export NVM_DIR="$HOME/.nvm"
 #[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
