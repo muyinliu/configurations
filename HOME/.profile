@@ -646,6 +646,10 @@ export NVM_DIR="$HOME/.nvm"
 # handle GFW network problem
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/dist
 
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/node@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/node@16/include"
+
 ########################################################
 # Java configurations
 
