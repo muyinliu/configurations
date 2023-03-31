@@ -143,6 +143,9 @@ matches:
   - trigger: "hsc;"
     replace: "```haskell\n$|$\n```"
 
+  - trigger: "so;"
+    replace: "```solidity\n$|$\n```"
+
   - trigger: "urlc;"
     replace: "```url\n$|$\n```"
 
