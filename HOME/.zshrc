@@ -63,5 +63,7 @@ source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 autoload -U bashcompinit
 bashcompinit
 
+## enable fzf autocomplete
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [ -f ~/.profile ]; then . ~/.profile; fi
