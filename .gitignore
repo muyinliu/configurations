@@ -1,16 +1,4 @@
 .DS_Store
 /HOME/.private_profile
-/HOME/.config/karabiner/automatic_backups/
-/HOME/.config/configstore/
-/HOME/.config/gh/
-/HOME/.config/iterm2/
-/HOME/.config/PlistEDPlus/
-/HOME/.config/neofetch/
-/HOME/.config/qBittorrent/
-/HOME/.config/gcloud/
-/HOME/.config/rclone/
-/HOME/.config/clash/
-/HOME/.config/BaiduPCS-Go/
-/HOME/.config/gtk-2.0/
-/HOME/.config/wireshark/
+/HOME/.config/
 /Alfred.alfredpreferences
