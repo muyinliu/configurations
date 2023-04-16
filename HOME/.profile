@@ -484,7 +484,9 @@ alias gai="gst-fzf | xargs -0 git add"
 ### use Control + a to trigger command: git add
 ### use Control + s to copy filename to clipboard
 alias gdi="gst-fzf --preview 'git diff --exit-code --color=always {} && cat {}' \
-                   --bind 'ctrl-a:execute-silent(git add {})'"
+                   --bind 'ctrl-a:execute-silent(git add {})' \
+                   --bind 'ctrl-r:execute-silent(git checkout -- {})' \
+                   --bind 'ctrl-o:execute-silent(open {})'"
 alias gcoi="gst-fzf | xargs -0 git checkout --"
 
 ########################################################
