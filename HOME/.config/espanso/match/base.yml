@@ -3,20 +3,20 @@ matches:
     replace: "MuNote"
 
   - trigger: "ud;"
-    replace: "Update: {{yyyyMMdd}}"
+    replace: "- Update: {{yyyyMMdd}}"
     vars:
       - name: yyyyMMdd
         type: date
         params:
-          format: "%Y%m%d"
+          format: "%Y-%m-%d"
 
   - trigger: "nud;"
-    replace: "Update: {{yyyyMMdd}}\n  Date: {{yyyyMMdd}}"
+    replace: "- Update: {{yyyyMMdd}}\n-   Date: {{yyyyMMdd}}"
     vars:
       - name: yyyyMMdd
         type: date
         params:
-          format: "%Y%m%d"
+          format: "%Y-%m-%d"
 
   - trigger: "nd;"
     replace: "  Date: {{yyyyMMdd}}"
@@ -24,25 +24,25 @@ matches:
       - name: yyyyMMdd
         type: date
         params:
-          format: "%Y%m%d"
+          format: "%Y-%m-%d"
 
   - trigger: "ni;"
-    replace: "-----------------------------------------------------------------\n## 安装/加载 `$|$`\n\n"
+    replace: "-----------------------------------------------------------------\n## installation/load, 安装/加载 `$|$`\n\n"
 
   - trigger: "nu;"
-    replace: "-----------------------------------------------------------------\n## 使用 `$|$`\n\n"
+    replace: "-----------------------------------------------------------------\n## usage of `$|$`, 使用 `$|$`\n\n"
 
   - trigger: "nq;"
-    replace: "-----------------------------------------------------------------\n## 问题收集\n\n"
+    replace: "-----------------------------------------------------------------\n## issues, 问题收集\n\n"
 
   - trigger: "nc;"
-    replace: "-----------------------------------------------------------------\n## 配置 `$|$`\n\n"
+    replace: "-----------------------------------------------------------------\n## configuration `$|$`, 配置 `$|$`\n\n"
 
   - trigger: "ns;"
-    replace: "## 说明\n\n"
+    replace: "## description, 说明\n\n"
 
   - trigger: "nr;"
-    replace: "-----------------------------------------------------------------\n## 参考\n\n"
+    replace: "-----------------------------------------------------------------\n## references, 参考\n\n"
 
   - trigger: "pb;"
     replace: "-----------------------------------------------------------------"
