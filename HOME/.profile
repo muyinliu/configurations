@@ -14,7 +14,11 @@ export LESS_TERMCAP_ue=$'\e[0m'      # normal
 export MANPAGER="less"
 export MANPATH="/usr/local/share/man:$MANPATH"
 
-export TERM="screen-256color"
+if [[ $TMUX != "" ]]; then
+    export TERM="screen-256color"
+else
+    export TERM="xterm-256color"
+fi;
 
 # config language environment
 export LC_ALL="en_US.UTF-8"
