@@ -673,13 +673,11 @@ alias asmtools="java -jar ${ASMTOOLSHOME}"
 
 ########################################################
 # Python configurations
-export PKG_CONFIG_PATH="/usr/local/Library/Homebrew/pkgconfig:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig"
-export INFOPATH=/sw/share/info:/sw/info:/usr/share/info
-unset PYTHONPATH
-export PATH="$PATH:$HOME/Library/Python/3.9/bin"
-export PATH="$PATH:$HOME/.local/bin"
-## enable pipx argument completion
-eval "$(register-python-argcomplete pipx)"
+export PYENV_ROOT="$HOME/.pyenv"
+if [ $(command -v pyenv) ]; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi;
 
 ########################################################
 # Rust configurations
