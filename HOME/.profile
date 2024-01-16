@@ -688,16 +688,16 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ "${BASH-no}" != "no" ]; then
-if [ -f '/usr/local/google-cloud-sdk/path.bash.inc' ]; then . '/usr/local/google-cloud-sdk/path.bash.inc'; fi
+    if [ -f "$(brew --prefix)/share/google-cloud-sdk/path.bash.inc" ]; then . "$(brew --prefix)/share/google-cloud-sdk/path.bash.inc"; fi
 elif [ "${ZSH-no}" != "no" ]; then
-    if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
+    if [ -f "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc" ]; then . "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"; fi
 fi;
 
 # The next line enables shell command completion for gcloud.
 if [ "${BASH-no}" != "no" ]; then
-    if [ -f '/usr/local/google-cloud-sdk/completion.bash.inc' ]; then . '/usr/local/google-cloud-sdk/completion.bash.inc'; fi
+    if [ -f "$(brew --prefix)/share/google-cloud-sdk/completion.bash.inc" ]; then . "$(brew --prefix)/share/google-cloud-sdk/completion.bash.inc"; fi
 elif [ "${ZSH-no}" != "no" ]; then
-    if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
+    if [ -f "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc" ]; then . "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"; fi
 fi;
 
 ########################################################
