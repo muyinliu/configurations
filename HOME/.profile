@@ -701,6 +701,15 @@ elif [ "${ZSH-no}" != "no" ]; then
 fi;
 
 ########################################################
+# Solana configurations
+
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+
+## avm(Anchor Version Manager) configuration
+export PATH="$HOME/.avm/bin:$PATH"
+
+
+########################################################
 # portable shell commands
 ## for Mac with Apple Silicon CPUs
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
