@@ -232,10 +232,12 @@ function install_software_with_brew () {
     brew install git
     brew install tig
     brew install tmux
+    brew install tmuxp
     brew install htop
     brew install tree
     brew install fzf
     brew install ncdu
+    brew install smartmontools
     brew install rlwrap
     brew install vim
     brew install emacs
@@ -246,10 +248,14 @@ function install_software_with_brew () {
     brew install trash
     brew install cloc
     brew install iproute2mac
+    brew install slurm
     brew install uni2ascii
     brew install mdp/tap/qrterminal
     brew install zbar
     brew install sha3sum
+    brew install viddy
+    brew install asimov
+    brew install direnv
     # install program language
     brew install sbcl
     brew install roswell
@@ -258,7 +264,11 @@ function install_software_with_brew () {
     brew install leiningen
     brew install automake
     brew install golang
+    brew install nvm
     brew install node
+    brew install python
+    brew install pyenv
+    brew install golang
     # install network tools
     brew install mosh
     brew install autossh
@@ -269,7 +279,9 @@ function install_software_with_brew () {
     brew install proxychains-ng
     brew install libuv
     brew install shadowsocks-libev
+    brew install privoxy
     brew install frpc
+    brew install nginx
 }
 
 function install_software_with_brew_cask () {
@@ -298,7 +310,6 @@ function install_software_with_brew_cask () {
     # brew install --cask wechat
     # brew install --cask qq
     # brew install --cask bitbar
-    # brew install --cask shadowsocksx-ng
     # brew install --cask sublime-text
     # brew install --cask pennywise
     # brew install --cask paragon-ntfs
