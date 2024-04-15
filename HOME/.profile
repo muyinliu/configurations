@@ -669,6 +669,9 @@ fi;
 export PATH="$HOME/.cargo/bin:$PATH"
 
 ########################################################
+export PATH="$PATH:$HOME/.foundry/bin"
+
+########################################################
 # Google Cloud configurations
 
 # The next line updates PATH for the Google Cloud SDK.
