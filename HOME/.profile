@@ -482,7 +482,7 @@ fi;
 export GIT_TERMINAL_PROMPT=1
 
 ## git with fzf alias configuration
-alias gst-fzf="git ls-files -m -o --exclude-standard | fzf -m --print0"
+alias gst-fzf="git ls-files -m -o --exclude-standard | fzf -m --print0 --tac"
 alias gai="gst-fzf | xargs -0 git add"
 ### auto show git diff of current file(if NOT new file and diff exists)
 ### use Control + a to trigger command: git add
