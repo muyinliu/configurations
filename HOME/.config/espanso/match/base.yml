@@ -361,3 +361,6 @@ matches:
 
   - trigger: "eur#"
     replace: "0x00000000000000000000000000000000000003d2"
+
+  - trigger: "vit#"
+    replace: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
