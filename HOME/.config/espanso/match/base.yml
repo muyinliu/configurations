@@ -224,6 +224,9 @@ matches:
   - trigger: "jl;"
     replace: "console.log($|$);"
 
+  - trigger: "jp;"
+    replace: "return new Promise((resolve, reject) => {$|$});"
+
   - trigger: "formatsd;"
     replace: "yyyy-MM-dd HH:mm:ss.SSS"
 
