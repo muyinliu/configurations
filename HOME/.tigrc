@@ -2,6 +2,6 @@ set main-view-id = yes
 set main-view-id-width = 8
 set main-view-date = custom
 set main-view-date-format = "%Y-%m-%dT%H:%M:%S%Z"
-set main-view-author-width = 25
+set main-view-author-width = 20
 bind generic C none
 bind generic C !<git checkout %(commit)
