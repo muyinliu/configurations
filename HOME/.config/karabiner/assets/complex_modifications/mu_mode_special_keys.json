@@ -403,7 +403,8 @@
           ],
           "to_if_alone": [
             {
-              "key_code": "caps_lock"
+              "key_code": "caps_lock",
+              "hold_down_milliseconds": 200
             }
           ],
           "description": "left_shift alone to switch caps_lock"
